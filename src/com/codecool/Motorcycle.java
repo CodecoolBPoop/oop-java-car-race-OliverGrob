@@ -9,7 +9,7 @@ public class Motorcycle implements Vehicle {
     // The number of the instance created. Used for its name.
     private static int nameNumber = 0;
     // Are called "Motorcycle 1", "Motorcycle 2", "Motorcycle 3",... Unique.
-    private String name = "Motorcycle" + nameNumber;
+    private String name = "Motorcycle " + nameNumber;
     private int distanceTraveled = 0;
 
 

@@ -35,6 +35,10 @@ public class Race {
     }
 
     public static void main(String[] args) {
-	// write your code here
+        for (int i = 0; i < 10; i++) {
+            Car car = new Car(Integer.toString(i));
+            Motorcycle motorcycle = new Motorcycle();
+            Truck truck = new Truck();
+        }
     }
 }
