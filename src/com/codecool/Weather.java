@@ -12,7 +12,7 @@ public class Weather {
     /**
      * Returns whether it is raining currently or not.
      *
-     * @return : True if it's raining, false otherwise
+     * @return : True if it's raining, false if not
      */
     public static boolean isRaining() {
         return false;
