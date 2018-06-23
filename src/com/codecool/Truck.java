@@ -14,6 +14,7 @@ public class Truck implements Vehicle {
 
 
     public Truck() {
+        System.out.println("Truck number " + this.name + " created!");
     }
 
 

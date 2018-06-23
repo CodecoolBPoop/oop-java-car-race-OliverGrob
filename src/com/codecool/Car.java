@@ -15,7 +15,7 @@ public class Car implements Vehicle {
     public Car(String name) {
         this.name = name;
         this.normalSpeed = new Random().nextInt(30) + 80;
-        System.out.println(name + "'s speed is " + normalSpeed + "km/h");
+        System.out.println(name + "'s speed is " + normalSpeed + "km/h!");
     }
 
 
