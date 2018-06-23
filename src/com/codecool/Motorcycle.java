@@ -27,8 +27,8 @@ public class Motorcycle implements Vehicle {
         this.normalSpeed = normalSpeed;
     }
 
-    public int getnameNumber() {
-        return normalSpeed;
+    public int getNameNumber() {
+        return nameNumber;
     }
 
     public int getDistanceTraveled() {
