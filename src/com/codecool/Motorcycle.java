@@ -19,7 +19,7 @@ public class Motorcycle extends Vehicle {
     @Override
     public void moveForAnHour(Race race) {
         if (Weather.isRaining()) {
-            this.setNormalSpeed(this.getNormalSpeed() + new Random().nextInt(50) + 5);
+            this.setNormalSpeed(this.getNormalSpeed() - (new Random().nextInt(50) + 5));
         }
 
         this.setDistanceTraveled(this.getDistanceTraveled() + this.getNormalSpeed());
