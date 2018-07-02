@@ -31,6 +31,10 @@ public class Motorcycle implements Vehicle {
         return nameNumber;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getDistanceTraveled() {
         return distanceTraveled;
     }

@@ -26,6 +26,10 @@ public class Truck implements Vehicle {
         this.normalSpeed = normalSpeed;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getBreakdownTurnsLeft() {
         return breakdownTurnsLeft;
     }

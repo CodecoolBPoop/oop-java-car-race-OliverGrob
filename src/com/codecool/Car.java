@@ -32,6 +32,10 @@ public class Car implements Vehicle {
         this.normalSpeed = normalSpeed;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getDistanceTraveled() {
         return distanceTraveled;
     }
