@@ -1,5 +1,6 @@
 package com.codecool;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Car implements Vehicle {
@@ -12,10 +13,14 @@ public class Car implements Vehicle {
     private int distanceTraveled = 0;
 
 
-    public Car(String name) {
-        this.name = name;
+    public Car() {
+        String[] names = {"Meridian", "Heirloom", "Liberty", "Spirit", "Centaur",
+                          "Dynamics", "Enigma", "Might", "Gallop", "Barrage",
+                          "Inception", "Pulse", "Vision", "Spirit", "Warrior",
+                          "Wolf", "Method", "Gorilla", "Universe", "Oli"};
+        this.name = names[new Random().nextInt(20)] + " " + names[new Random().nextInt(20)];
         this.normalSpeed = new Random().nextInt(30) + 80;
-        System.out.println(name + "'s speed is " + normalSpeed + "km/h!");
+        System.out.println(name + "'s speed is " + normalSpeed + " km/h!");
     }
 
 
