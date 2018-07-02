@@ -2,51 +2,27 @@ package com.codecool;
 
 import java.util.Random;
 
-public class Motorcycle implements Vehicle {
+public class Motorcycle extends Vehicle {
 
-    private int normalSpeed = 100;
-    private static int nameNumber = 1;
-    private String name = "Motorcycle " + nameNumber;
-    private int distanceTraveled = 0;
+    private static int nameNumber = 0;
 
 
     public Motorcycle() {
         nameNumber++;
-        System.out.println(this.name + " is created!");
+        this.setName("Motorcycle " + nameNumber);
+        this.setNormalSpeed(100);
+        this.setType("Motorcycle");
+        System.out.println(this.getName() + " is created!");
     }
 
-
-    public int getNormalSpeed() {
-        return normalSpeed;
-    }
-
-    public void setNormalSpeed(int normalSpeed) {
-        this.normalSpeed = normalSpeed;
-    }
-
-    public int getNameNumber() {
-        return nameNumber;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getDistanceTraveled() {
-        return distanceTraveled;
-    }
-
-    public void setDistanceTraveled(int distanceTraveled) {
-        this.distanceTraveled = distanceTraveled;
-    }
 
     @Override
     public void moveForAnHour(Race race) {
         if (Weather.isRaining()) {
-            this.normalSpeed -= new Random().nextInt(50) + 5;
+            this.setNormalSpeed(this.getNormalSpeed() + new Random().nextInt(50) + 5);
         }
 
-        distanceTraveled += this.getNormalSpeed();
+        this.setDistanceTraveled(this.getDistanceTraveled() + this.getNormalSpeed());
         this.setNormalSpeed(100);
     }
 

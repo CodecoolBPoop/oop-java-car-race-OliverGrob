@@ -2,31 +2,18 @@ package com.codecool;
 
 import java.util.Random;
 
-public class Truck implements Vehicle {
+public class Truck extends Vehicle {
 
-    // speed: 100km/h. 5% chance of breaking down for 2 hours.
-    private int normalSpeed = 100;
-    private String name = Integer.toString(new Random().nextInt(1000));
     private int breakdownTurnsLeft = 0;
-    private int distanceTraveled = 0;
 
 
     public Truck() {
-        System.out.println("Truck number " + this.name + " created!");
+        this.setName(Integer.toString(new Random().nextInt(1000)));
+        this.setNormalSpeed(100);
+        this.setType("Truck");
+        System.out.println("Truck number " + this.getName() + " created!");
     }
 
-
-    public int getNormalSpeed() {
-        return normalSpeed;
-    }
-
-    public void setNormalSpeed(int normalSpeed) {
-        this.normalSpeed = normalSpeed;
-    }
-
-    public String getName() {
-        return name;
-    }
 
     public int getBreakdownTurnsLeft() {
         return breakdownTurnsLeft;
@@ -36,18 +23,14 @@ public class Truck implements Vehicle {
         this.breakdownTurnsLeft = breakdownTurnsLeft;
     }
 
-    public int getDistanceTraveled() {
-        return distanceTraveled;
-    }
-
-    public void setDistanceTraveled(int distanceTraveled) {
-        this.distanceTraveled = distanceTraveled;
+    public boolean isBrokenDown() {
+        return this.breakdownTurnsLeft != 0;
     }
 
     @Override
     public void moveForAnHour(Race race) {
         if (this.getBreakdownTurnsLeft() == 0) {
-            this.distanceTraveled += this.getNormalSpeed();
+            this.setDistanceTraveled(this.getDistanceTraveled() + this.getNormalSpeed());
             int breakdownChance = new Random().nextInt(100);
 
             if (breakdownChance < 5) {
