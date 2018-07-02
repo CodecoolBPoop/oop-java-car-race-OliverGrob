@@ -4,11 +4,8 @@ import java.util.Random;
 
 public class Motorcycle implements Vehicle {
 
-    // speed is 100km/h. If it rains, travels with 5-50km/h slower (randomly).
     private int normalSpeed = 100;
-    // The number of the instance created. Used for its name.
-    private static int nameNumber = 0;
-    // Are called "Motorcycle 1", "Motorcycle 2", "Motorcycle 3",... Unique.
+    private static int nameNumber = 1;
     private String name = "Motorcycle " + nameNumber;
     private int distanceTraveled = 0;
 
@@ -45,16 +42,12 @@ public class Motorcycle implements Vehicle {
 
     @Override
     public void moveForAnHour(Race race) {
+        if (Weather.isRaining()) {
+            this.normalSpeed -= new Random().nextInt(50) + 5;
+        }
 
-    }
-
-    /**
-     * If it is raining, the speed of the motorcycle is reduced by 5-50 randomly
-     *
-     * @return : True if it is raining, false if not
-     */
-    public boolean isItRaining() {
-        return false;
+        distanceTraveled += this.getNormalSpeed();
+        this.setNormalSpeed(100);
     }
 
 }

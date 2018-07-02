@@ -29,9 +29,9 @@ public class Race {
         for (int i = 0; i < 50; i++) {
             Weather.setRaining();
             for (int j = 0; j < 10; j++) {
-                cars.get(i).moveForAnHour(race);
-                motorcycles.get(i).moveForAnHour(race);
-                trucks.get(i).moveForAnHour(race);
+                cars.get(j).moveForAnHour(race);
+                motorcycles.get(j).moveForAnHour(race);
+                trucks.get(j).moveForAnHour(race);
             }
         }
     }
@@ -80,4 +80,5 @@ public class Race {
         bommBoommWin.simulateRace(bommBoommWin);
         bommBoommWin.printRaceResults();
     }
+
 }
