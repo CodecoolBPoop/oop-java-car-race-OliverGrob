@@ -1,4 +1,4 @@
-package com.codecool;
+package com.codecool.carrace;
 
 import java.util.ArrayList;
 import java.util.List;
