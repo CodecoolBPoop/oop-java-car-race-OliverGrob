@@ -1,22 +1,20 @@
 package com.codecool;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Race {
 
-    private ArrayList<Car> cars = new ArrayList<>(10);
-    private ArrayList<Motorcycle> motorcycles = new ArrayList<>(10);
-    private ArrayList<Truck> trucks = new ArrayList<>(10);
-
+    private List<Vehicle> vehicles = new ArrayList<>(30);
 
     /**
      * Creates 10 cars, 10 trucks and 10 motorcycles.
      */
     public void createVehicles() {
         for (int i = 0; i < 10; i++) {
-            cars.add(new Car());
-            motorcycles.add(new Motorcycle());
-            trucks.add(new Truck());
+            vehicles.add(new Car());
+            vehicles.add(new Motorcycle());
+            vehicles.add(new Truck());
         }
     }
 
@@ -28,10 +26,8 @@ public class Race {
     public void simulateRace(Race race) {
         for (int i = 0; i < 50; i++) {
             Weather.setRaining();
-            for (int j = 0; j < 10; j++) {
-                cars.get(j).moveForAnHour(race);
-                motorcycles.get(j).moveForAnHour(race);
-                trucks.get(j).moveForAnHour(race);
+            for (Vehicle vehicle: vehicles) {
+                vehicle.moveForAnHour(race);
             }
         }
     }
@@ -40,21 +36,9 @@ public class Race {
      * Prints each vehicle's name, distance traveled ant type.
      */
     public void printRaceResults() {
-        System.out.println("-----  Cars  -----");
-        for (Car car: cars) {
-            System.out.println(car.getName() + " traveled " + car.getDistanceTraveled() + " km.");
-        }
-        System.out.println();
-
-        System.out.println("-----  Motorcycles  -----");
-        for (Motorcycle motorcycle: motorcycles) {
-            System.out.println(motorcycle.getName() + " traveled " + motorcycle.getDistanceTraveled() + " km.");
-        }
-        System.out.println();
-
-        System.out.println("-----  Trucks  -----");
-        for (Truck truck: trucks) {
-            System.out.println(truck.getName() + " traveled " + truck.getDistanceTraveled() + " km.");
+        System.out.println("\n----------   Results   ----------");
+        for (Vehicle vehicle: vehicles) {
+            System.out.println(vehicle.getName() + " traveled " + vehicle.getDistanceTraveled() + " km (" + vehicle.getType() + ").");
         }
     }
 
@@ -64,9 +48,11 @@ public class Race {
      * @return : True if there is a broken truck, false if there is not
      */
     public boolean isThereABrokenTruck() {
-        for (Truck truck: trucks) {
-            if (truck.getBreakdownTurnsLeft() != 0) {
-                return true;
+        for (Vehicle vehicle: vehicles) {
+            if (vehicle instanceof Truck) {
+                if (((Truck) vehicle).isBrokenDown()) {
+                    return true;
+                }
             }
         }
 
@@ -74,11 +60,11 @@ public class Race {
     }
 
     public static void main(String[] args) {
-        Race bommBoommWin = new Race();
+        Race race = new Race();
 
-        bommBoommWin.createVehicles();
-        bommBoommWin.simulateRace(bommBoommWin);
-        bommBoommWin.printRaceResults();
+        race.createVehicles();
+        race.simulateRace(race);
+        race.printRaceResults();
     }
 
 }
