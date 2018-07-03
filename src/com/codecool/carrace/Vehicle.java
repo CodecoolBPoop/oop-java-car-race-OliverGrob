@@ -40,6 +40,10 @@ public abstract class Vehicle {
         this.type = type;
     }
 
+    public String getRaceResult() {
+        return this.name + " traveled " + this.distanceTraveled + " km (" + this.type + ").";
+    }
+
     /**
      * The vehicle travels for an hour. It increases the distance traveled. Call this from the main class only!
      * If there is a broken down Truck on the track, then limit the max speed of vehicles to 75 km/h.

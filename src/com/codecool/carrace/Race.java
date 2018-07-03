@@ -38,7 +38,7 @@ public class Race {
     public void printRaceResults() {
         System.out.println("\n----------   Results   ----------");
         for (Vehicle vehicle: vehicles) {
-            System.out.println(vehicle.getName() + " traveled " + vehicle.getDistanceTraveled() + " km (" + vehicle.getType() + ").");
+            System.out.println(vehicle.getRaceResult());
         }
     }
 
