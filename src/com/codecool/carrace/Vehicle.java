@@ -32,15 +32,12 @@ public abstract class Vehicle {
         this.distanceTraveled = distanceTraveled;
     }
 
-    public String getType() {
-        return this.type;
-    }
-
     public void setType(String type) {
         this.type = type;
     }
 
-    public String getRaceResult() {
+    @Override
+    public String toString() {
         return this.name + " traveled " + this.distanceTraveled + " km (" + this.type + ").";
     }
 

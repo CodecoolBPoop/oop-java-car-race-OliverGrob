@@ -4,6 +4,8 @@ import java.util.Random;
 
 public class Car extends Vehicle {
 
+    public static final int RESTRICTED_SPEED = 75;
+
     public Car() {
         String[] names = {"Meridian", "Heirloom", "Liberty", "Spirit", "Centaur",
                           "Dynamics", "Enigma", "Might", "Gallop", "Barrage",
@@ -19,7 +21,7 @@ public class Car extends Vehicle {
     @Override
     public void moveForAnHour(Race race) {
         if (race.isThereABrokenTruck()) {
-            this.setDistanceTraveled(this.getDistanceTraveled() + 75);
+            this.setDistanceTraveled(this.getDistanceTraveled() + RESTRICTED_SPEED);
             return;
         }
 

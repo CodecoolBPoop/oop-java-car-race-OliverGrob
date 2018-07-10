@@ -23,11 +23,11 @@ public class Race {
      *    - calling moveForAnHour() on every vehicle 50 times
      *    - setting whether its raining
      */
-    public void simulateRace(Race race) {
-        for (int i = 0; i < 50; i++) {
+    public void simulateRace(int hour) {
+        for (int i = 0; i < hour; i++) {
             Weather.setRaining();
             for (Vehicle vehicle: vehicles) {
-                vehicle.moveForAnHour(race);
+                vehicle.moveForAnHour(this);
             }
         }
     }
@@ -38,7 +38,7 @@ public class Race {
     public void printRaceResults() {
         System.out.println("\n----------   Results   ----------");
         for (Vehicle vehicle: vehicles) {
-            System.out.println(vehicle.getRaceResult());
+            System.out.println(vehicle);
         }
     }
 
@@ -63,7 +63,7 @@ public class Race {
         Race race = new Race();
 
         race.createVehicles();
-        race.simulateRace(race);
+        race.simulateRace(50);
         race.printRaceResults();
     }
 
